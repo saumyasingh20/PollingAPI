@@ -37,3 +37,21 @@ module.exports.createNewOption = async function(req, res){
     }
 
 };
+module.exports.addVote = async function(req,res){
+    try{
+
+        let id = req.params.id;
+
+        // check if an option exists for a question, add a new vote by incrementing 1
+        await Option.findByIdAndUpdate(id, { $inc : { votes : 1 }});
+
+        return res.status(200).json({
+            data : { message : "Voted successfully" }
+        });
+    }catch(err){
+        console.log("******* Error in adding vote ********* ",err);
+        return res.status(500).json({
+            data : { message : "Internal Server Error in adding vote" }
+        });  
+    }
+}
