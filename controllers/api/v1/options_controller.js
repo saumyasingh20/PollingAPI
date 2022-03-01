@@ -17,7 +17,7 @@ module.exports.createNewOption = async function(req, res){
                 question : req.params.id,
             });
 
-            option.link_vote = "http://localhost:8006/api/v1/options/"+option.id+"/add_vote";
+            option.link_vote = "http://3.6.86.43:8006/api/v1/options/"+option.id+"/add_vote";
             option.save();
             
             question.options.push(option);
