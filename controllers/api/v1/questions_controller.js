@@ -42,3 +42,47 @@ module.exports.viewQuestion = async function(req, res){
     }
 
 }
+module.exports.deleteQuestion = async function(req, res){
+
+    try{
+
+        let id = req.params.id;
+        let question = await Question.findById(id).populate({
+            path : 'options',
+            select : 'votes',
+        });
+
+        if(question){
+            // checking if any option has some votes already
+            let options = question.options;
+
+            for(let i = 0; i < options.length; i++){
+                if(options[i].votes > 0){
+                    return res.status(404).json({
+                        data : {
+                            message : "Question can not be deleted, it's options are voted already !",
+                        }
+                    });
+                }
+            }
+
+           
+            await Option.deleteMany({ question:id });
+            await Question.findByIdAndDelete(id);
+
+            return res.status(200).json({
+                message : "Question deleted successfully",
+            });
+
+        }else{
+            return res.status(404).json({ message : "Question not found" });
+        }
+
+    }catch(err){
+        console.log("******* Error in deleting question ********* ",err);
+        return res.status(500).json({
+            message : "Internal server error in deleting question",
+        });
+    }
+
+}

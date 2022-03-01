@@ -12,6 +12,7 @@ const optionSchema = new mongoose.Schema({
     },
     votes : {
         type : Number,
+        required : true
     },
     link_vote : {
         type : String,
