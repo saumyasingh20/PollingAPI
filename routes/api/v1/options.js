@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/questions', require('./question'));
-router.use('/options', require('./option'));
+const optionsController = require('../../../controllers/api/v1/options_controller');
 
 module.exports = router;
