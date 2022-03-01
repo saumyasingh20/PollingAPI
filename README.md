@@ -13,10 +13,10 @@
 # Routes & URL :
 - **/questions/create** : To create a new question hit the following URL with a post request: http://3.6.86.43:8006/api/v1/questions/create
 - **/options/:id/create** : To create a new option for a question hit the following URL with a post request: http://3.6.86.43:8006/api/v1/options/:idOfQuestion/create
-- **/questions/:id/delete** : To delete a question, hit the following URL with a delete request:  http://3.6.86.43:8006/api/v1/questions/:idOfQuestion/delete
-- **/options/:id/delete**: To delete an option, hit the following URL with a delete request:  http://3.6.86.43:8006/api/v1/options/:idOfOption/delete
 - **/options/:id/add_vote**: To increment the count of votes on an option, hit the following URL with a get request: http://3.6.86.43:8006/api/v1/options/:idOfOption/add_vote
 - **/questions/:id**: To view a question and it’s options, hit the following URL with a get request:  http://3.6.86.43:8006/api/v1/questions/:idOfQuestion
+- **/options/:id/delete**: To delete an option, hit the following URL with a delete request:  http://3.6.86.43:8006/api/v1/options/:idOfOption/delete
+- **/questions/:id/delete** : To delete a question, hit the following URL with a delete request:  http://3.6.86.43:8006/api/v1/questions/:idOfQuestion/delete
 
 # To run the project on your local machine:
 
