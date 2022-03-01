@@ -24,3 +24,21 @@ module.exports.createNewQuestion = async function(req,res){
         });
     }
 }
+module.exports.viewQuestion = async function(req, res){
+
+    try{
+
+        let question = await Question.findById(req.params.id).populate('options');
+
+        return res.status(200).json({ question });
+
+    }catch(err){
+
+        console.log("******* Error in viewing question ********* ",err);
+        return res.status(500).json({
+            data : { message : "Internal Server Error in viewing question" }
+        });
+
+    }
+
+}
