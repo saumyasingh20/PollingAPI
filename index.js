@@ -2,7 +2,7 @@ const express = require('express');
 const env = require('./config/environment');
 const app = express();
 const port = 8006;
-
+const logger = require('morgan');
 const db = require('./config/mongoose');
 
 // middle for parse form data
