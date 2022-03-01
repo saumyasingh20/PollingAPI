@@ -14,13 +14,13 @@ module.exports.createNewQuestion = async function(req,res){
         }else{
             // else return status 500 internal server error
             return res.status(500).json({
-                data : { message : "Internal Server Error" }
+                data : { message : "Internal Server Error !" }
             });
         }  
     }catch(err){
-        console.log("Error in creating question",err);
+        console.log("******* Error in creating question ********* ",err);
         return res.status(500).json({
-            data : { message : "Internal Server Error" }
+            data : { message : "Internal Server Error in creating a question" }
         });
     }
 }
